@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import math
 
 class Number:
@@ -7,7 +9,7 @@ class Number:
         self.exponent = exponent
 
     def __eq__(self, other):
-        return self.base == other.base and self.exponent == other.exponent
+        return self.exponent * math.log(self.base) == other.exponent * math.log(other.base)
 
     def __ne__(self, other):
         return not(self == other)
