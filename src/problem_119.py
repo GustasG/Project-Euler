@@ -6,8 +6,10 @@ def main():
     values = []
 
     for base in range(2, 100):
-        for exponent in range(2, 100):
-            number = base ** exponent
+        number = base
+        
+        for exponent in range(100):
+            number *= base
             
             if sum_digits(number) == base:
                 values.append(number)
