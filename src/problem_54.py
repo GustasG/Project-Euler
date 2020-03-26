@@ -5,16 +5,16 @@ import enum
 
 
 class Rank(enum.Enum):
-    ROYAL_FLUSH = 10
-    STRAIGHT_FLUSH = 9
-    FOUR_OF_KIND = 8
-    FULL_HOUSE = 7
-    FLUSH = 6
-    STRAIGHT = 5
-    THREE_OF_KIND = 4
-    TWO_PAIRS = 3
-    ONE_PAIR = 2
     HIGH_CARD = 1
+    ONE_PAIR = 2
+    TWO_PAIRS = 3
+    THREE_OF_KIND = 4
+    STRAIGHT = 5
+    FLUSH = 6
+    FULL_HOUSE = 7
+    FOUR_OF_KIND = 8
+    STRAIGHT_FLUSH = 9
+    ROYAL_FLUSH = 10
 
     def __lt__(self, other):
         return self.value < other.value
