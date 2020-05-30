@@ -1,4 +1,4 @@
-def n_th_digit_fib_number(digit_number):
+def n_th_digit_fib_number(digit_number: int) -> int:
     previous_number = 1
     current_number = 1
     current_term = 2

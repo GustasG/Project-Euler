@@ -12,7 +12,7 @@ def primes(number: int) -> list:
     return [2] + [i for i in range(3, number, 2) if sieve[i]]
 
 
-def find_quadratic_primes():
+def find_quadratic_primes() -> (int, int):
     max = 0
     max_a = 0
     max_b = 0

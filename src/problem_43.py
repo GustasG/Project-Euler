@@ -23,7 +23,7 @@ def main():
 		if calculateDivisibility(current_number):
 			sum += int(current_number)
 
-	print('Total sum: {0}'.format(sum))
+	print(f'Total sum: {sum}')
 
 
 
