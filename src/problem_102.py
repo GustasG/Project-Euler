@@ -9,25 +9,21 @@ class Triangle:
         self.b = b
         self.c = c
 
-origin = Point(0, 0)
-
 def read_file(file_name: str) -> list:
     triangles = []
 
     with open(file_name, 'r') as f:
         for line in f:
             coordinates = list(map(int, line.split(',')))
-
-            a = Point(coordinates[0], coordinates[1])
-            b = Point(coordinates[2], coordinates[3])
-            c = Point(coordinates[4], coordinates[5])
-
-            triangles.append(Triangle(a, b, c))
+            points = [Point(coordinates[i], coordinates[i + 1]) for i in range(0, len(coordinates), 2)]
+            triangles.append(Triangle(*points))
 
     return triangles
 
 def sign(p1: Point, p2: Point, p3: Point) -> int:
     return (p1.x - p3.x)*(p2.y - p3.y) - (p2.x - p3.x)*(p1.y - p3.y)
+
+origin = Point(0, 0)
 
 def contains_origin(triangle: Triangle) -> bool:
     d1 = sign(origin, triangle.a, triangle.b)
