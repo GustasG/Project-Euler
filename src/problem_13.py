@@ -110,11 +110,11 @@ for i in range(0, LENGTH):
         sum += int(numbers[j])
 
     answer.insert(0, sum % 10)
-    sum = sum // 10
+    sum //= 10
 
 while sum > 0:
     answer.insert(0, sum % 10)
-    sum = sum // 10
+    sum //= 10
 
 
 for i in range(0, 10):

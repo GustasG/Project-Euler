@@ -1,4 +1,8 @@
-big_number = """73167176531330624919225119674426574742355349194934
+import math
+from typing import Iterator
+
+big_number = '''
+73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511
 12540698747158523863050715693290963295227443043557
@@ -17,29 +21,14 @@ big_number = """73167176531330624919225119674426574742355349194934
 07198403850962455444362981230987879927244284909188
 84580156166097919133875499200524063689912560717606
 05886116467109405077541002256983155200055935729725
-71636269561882670428252483600823257530420752963450"""
+71636269561882670428252483600823257530420752963450'''
 
-multip_result = []
+def num_iterate(number: str) -> Iterator[int]:
+    for i in range(len(number) - 12):
+        yield math.prod([int(number[i + j]) for j in range(13)])
+
 
 big_number = big_number.replace("\n", "")
+num = max(num_iterate(big_number))
+print(num)
 
-for i in range(0, len(big_number) - 12):
-    num1 = int (big_number[i])
-    num2 = int (big_number[i + 1])
-    num3 = int (big_number[i + 2])
-    num4 = int (big_number[i + 3])
-    num5 = int (big_number[i + 4])
-    num6 = int (big_number[i + 5])
-    num7 = int (big_number[i + 6])
-    num8 = int (big_number[i + 7])
-    num9 = int (big_number[i + 8])
-    num10 = int (big_number[i + 9])
-    num11 = int (big_number[i + 10])
-    num12 = int (big_number[i + 11])
-    num13 = int (big_number[i + 12])
-
-    multip_result.append(num1 * num2 * num3 * num4 * num5 * num6 * num7 * num8 * num9 * num10 * num11 * num12 * num13)
-
-
-multip_result.sort(reverse = True)
-print(multip_result[0])

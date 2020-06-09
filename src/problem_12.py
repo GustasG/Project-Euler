@@ -1,6 +1,6 @@
 import math
 
-def divisor_counter(number):
+def divisor_counter(number: int) -> int:
     sum = 0
 
     for i in range(1, int(math.sqrt(number) + 1)):

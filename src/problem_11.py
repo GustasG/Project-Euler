@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
-# Returns list of list of numbers
-def convert_to_numbers(grid):
+def convert_to_numbers(grid: str) -> list:
     grid = grid.split('\n')
 
     while '' in grid:
@@ -11,13 +10,12 @@ def convert_to_numbers(grid):
 
     for line in grid:
         numbers = line.split(' ')
-        numbers = [int(x) for x in numbers]
-        number_grid.append(numbers)
+        number_grid.append([int(x) for x in numbers])
 
     return number_grid
 
 
-def product_horizontaly(number_grid, grid_size):
+def product_horizontaly(number_grid: list, grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size):
@@ -27,7 +25,7 @@ def product_horizontaly(number_grid, grid_size):
 
     return biggest
 
-def product_verticaly(number_grid, grid_size):
+def product_verticaly(number_grid: list, grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size - 3):
@@ -37,7 +35,7 @@ def product_verticaly(number_grid, grid_size):
 
     return biggest
 
-def product_diagonaly_down(number_grid, grid_size):
+def product_diagonaly_down(number_grid: list, grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size - 3):
@@ -47,7 +45,7 @@ def product_diagonaly_down(number_grid, grid_size):
 
     return biggest
 
-def product_diagonaly_up(number_grid, grid_size):
+def product_diagonaly_up(number_grid: list, grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size - 1, grid_size - (grid_size - 4), -1):

@@ -1,23 +1,29 @@
-def is_polindrome(number):
+from typing import Iterator
+
+def is_polindrome(number: int) -> bool:
     temp = number
     new_number = 0
 
     while temp > 0:
         last_digit = temp % 10
         new_number = new_number * 10 + last_digit
-        temp = temp // 10
+        temp //= 10
 
     return new_number == number
 
-def number_iteration(digit_count):
-    biggest_number = -1
-
+def number_iteration(digit_count: int) -> Iterator[int]:
     for i in range(10 ** (digit_count - 1), 10 ** digit_count):
         for j in range(10 ** (digit_count - 1), 10 ** digit_count):
-            current_number = i * j
-            if is_polindrome(current_number) and (current_number) > biggest_number:
-                biggest_number = current_number
+            current = i * j
 
-    return biggest_number
+            if is_polindrome(current):
+                yield current
 
-print(number_iteration(3))
+
+def main():
+    number = max(number_iteration(3))
+    print(number)
+
+
+if __name__ == "__main__":
+    main()

@@ -6,4 +6,10 @@ def sumation(k: int, n: int) -> int:
 def multiples(number: int) -> int:
     return sumation(3, number) + sumation(5, number) - sumation(3 * 5, number)
 
-print(f'Result: {multiples(1000)}')
+
+def main():
+    print(f'Result: {multiples(1000)}')
+
+
+if __name__ == "__main__":
+    main()

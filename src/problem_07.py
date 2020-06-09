@@ -1,6 +1,6 @@
 import math
 
-def isPrime(number_to_check):
+def isPrime(number_to_check: int) -> bool:
     if number_to_check == 1:
         return False
     elif number_to_check < 4:
@@ -23,7 +23,7 @@ def isPrime(number_to_check):
         return True
 
 
-def find_primary(limit):
+def find_primary(limit: int) -> int:
     count = 1
     candidate = 1
 
@@ -36,5 +36,10 @@ def find_primary(limit):
     return candidate
 
 
+def main():
+    prime = find_primary(10001)
+    print(prime)
 
-print(find_primary(10001))
+if __name__ == "__main__":
+    main()
+

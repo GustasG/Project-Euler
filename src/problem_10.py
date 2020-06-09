@@ -14,4 +14,8 @@ def prime_sum(upper_limit: int) -> int:
     return sum(primes)
 
 
-print(prime_sum(2 * 10**6))
+def main():
+    print(prime_sum(2 * 10**6))
+
+if __name__ == "__main__":
+    main()
