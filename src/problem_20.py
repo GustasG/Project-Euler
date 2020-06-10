@@ -1,14 +1,12 @@
 import math
 
-def factorial_digit_sum(n):
-    factorial = math.factorial(n)
-    sum = 0
-    
-    while factorial > 0:
-        sum += factorial % 10
-        factorial = factorial // 10
+def digit_sum(number: int) -> int:
+    return sum(map(int, str(number)))
 
-    return sum
+def main():
+    s = digit_sum(math.factorial(100))
+    print(s)
 
 
-print(factorial_digit_sum(100))
+if __name__ == "__main__":
+    main()

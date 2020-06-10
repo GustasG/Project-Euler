@@ -11,7 +11,7 @@ def getNames(file_name):
     return list
 
 
-def calculateASCII(name):
+def calculateASCII(name: str) -> int:
     sum = 0
 
     for letter in name:
