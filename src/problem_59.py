@@ -1,37 +1,36 @@
 #!/usr/bin/python3
 
+from typing import List, Iterator
 from itertools import permutations
 import string
+import os
 
 
-def get_values(file_name: str) -> list:
+def get_values(file_name: str) -> List[int]:
     with open(file_name, 'r') as f:
-        file_data = f.read()
-        numbers = file_data.split(',')
-
+        numbers = f.read().split(',')
         return list(map(int, numbers))
 
 
-def decrypt(enc_values: list, password: tuple) -> str:
-    pass_len = len(password)
-    encv_len = len(enc_values)
+def decrypt(text: List[int], password: str) -> str:
+    numeric_password = list(map(ord, password))
 
-    return ''.join(chr(enc_values[i] ^ ord(password[i % pass_len])) for i in range(encv_len))
+    return ''.join(chr(text[i] ^ numeric_password[i % len(numeric_password)]) for i in range(len(text)))
 
 
-def bruteforce(values: list):
+def bruteforce(values: List[int]) -> Iterator[str]:
     for password in permutations('abcdefghijklmnopqrstuvwxyz', 3):
-        decoded = decrypt(values, password)
+        decrypted = decrypt(values, password)
 
-        if decoded.find('the') >= 0 and all(c in string.printable for c in decoded):
-            print('Password: {0}'.format(''.join(password)))
-            print(decoded)
-            print('')
+        if decrypted.find('the') >= 0 and all(c in string.printable for c in decrypted):
+            yield decrypted
 
 def main():
-    values = get_values('problem_59_cipher.txt')
+    values = get_values(os.path.join('res', 'problem_59_cipher.txt'))
 
-    bruteforce(values)
+#    for test in bruteforce(values):
+#        print(test)
+
     text = decrypt(values, 'exp')
 
     print(f'Text: {text}')
