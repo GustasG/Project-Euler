@@ -8,9 +8,7 @@ def calculateDigitFactorials():
     total = 0
 
     for i in range(3, sum(factorial(i) for i in range(10))):
-        digits = getDigits(i)
-
-        if sum(factorial(x) for x in digits) == i:
+        if sum(factorial(x) for x in getDigits(i)) == i:
             total += i
 
     return total

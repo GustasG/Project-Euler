@@ -10,7 +10,7 @@ Zeller's Rule:
 5- Friday
 6- Saturday 
 '''
-def dayOfWeek(year, month, day):
+def dayOfWeek(year: int, month: int, day: int) -> int:
     if month == 1 or month == 2:
         return dayOfWeek(year - 1, month + 12, day)
 
@@ -28,7 +28,7 @@ def dayOfWeek(year, month, day):
 
 
 
-def findMondays(year_begin, year_end):
+def findMondays(year_begin: int, year_end: int) -> int:
     sum = 0
 
     for year in range(year_begin, year_end + 1):
