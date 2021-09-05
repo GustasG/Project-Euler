@@ -12,5 +12,8 @@ multiples number =
     summation 15 number
 
 
+main :: IO ()
 main = do
-    print(multiples 1000)
+    print(multiples limit)
+    where
+        limit = 1000
