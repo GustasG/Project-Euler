@@ -6,7 +6,7 @@ from shared.primes import is_prime
 def fibonacci(limit: int) -> Generator[int, Any, None]:
     prev = 1
     curr = 1
-
+    
     while curr < limit:
         yield curr
         prev, curr = curr, curr + prev
