@@ -32,12 +32,8 @@ class Number:
 
 def read_file(path) -> List[Number]:
     with open(path, 'r') as f:
-        numbers = []
-        for i, line in enumerate(f):
-            values = line.split(',')
-            numbers.append(Number(i + 1, int(values[0]), int(values[1])))
-
-    return numbers
+        return [Number(i + 1, *map(int, line.split(',')))
+                for i, line in enumerate(f)]
 
 
 def main():

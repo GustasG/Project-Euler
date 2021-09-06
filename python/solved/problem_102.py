@@ -25,7 +25,7 @@ def read_file(path: str) -> List[Triangle]:
         triangles = []
         for line in f:
             coordinates = list(map(int, line.split(',')))
-            points = [Point(coordinates[i], coordinates[i + 1]) for i in range(0, len(line.split(',')), 2)]
+            points = [Point(coordinates[i], coordinates[i + 1]) for i in range(0, len(coordinates), 2)]
             triangles.append(Triangle(*points))
 
         return triangles
