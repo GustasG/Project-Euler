@@ -1,8 +1,7 @@
 summation :: Integer -> Integer -> Integer
 summation k n =
-    k * p * (p + 1) `div` 2
-    where
-    p = (n - 1) `div` k
+    k * p * (p + 1) `div` 2 where
+        p = (n - 1) `div` k
 
 
 multiples :: Integer -> Integer
@@ -12,7 +11,6 @@ multiples number =
     summation 15 number
 
 
-main :: IO ()
 main = do
     print(multiples limit)
     where
