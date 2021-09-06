@@ -1,19 +1,12 @@
-def convert_to_numbers(grid: str) -> list:
-    grid = grid.split('\n')
-
-    while '' in grid:
-        grid.remove('')
-
-    number_grid = []
-
-    for line in grid:
-        numbers = line.split(' ')
-        number_grid.append([int(x) for x in numbers])
-
-    return number_grid
+from typing import List
 
 
-def product_horizontaly(number_grid: list, grid_size: int) -> int:
+def convert_to_numbers(grid: str) -> List[List[int]]:
+    return [list(map(int, line.strip().split(' ')))
+            for line in grid.splitlines()]
+
+
+def product_horizontaly(number_grid: List[List[int]], grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size):
@@ -24,7 +17,7 @@ def product_horizontaly(number_grid: list, grid_size: int) -> int:
     return biggest
 
 
-def product_verticaly(number_grid: list, grid_size: int) -> int:
+def product_verticaly(number_grid: List[List[int]], grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size - 3):
@@ -35,7 +28,7 @@ def product_verticaly(number_grid: list, grid_size: int) -> int:
     return biggest
 
 
-def product_diagonaly_down(number_grid: list, grid_size: int) -> int:
+def product_diagonaly_down(number_grid: List[List[int]], grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size - 3):
@@ -46,7 +39,7 @@ def product_diagonaly_down(number_grid: list, grid_size: int) -> int:
     return biggest
 
 
-def product_diagonaly_up(number_grid: list, grid_size: int) -> int:
+def product_diagonaly_up(number_grid: List[List[int]], grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size - 1, grid_size - (grid_size - 4), -1):
@@ -58,7 +51,7 @@ def product_diagonaly_up(number_grid: list, grid_size: int) -> int:
 
 
 def main() -> None:
-    grid = """
+    GRID = '''
     08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
     49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
     81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
@@ -79,10 +72,10 @@ def main() -> None:
     20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
     20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
     01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
-    """
+    '''
 
     grid_size = 20
-    number_grid = convert_to_numbers(grid)
+    number_grid = convert_to_numbers(GRID.strip())
 
     max_values = [
         product_horizontaly(number_grid, grid_size),
