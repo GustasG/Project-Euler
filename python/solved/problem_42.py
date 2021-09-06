@@ -12,11 +12,19 @@ def letter_position(letter: str) -> int:
     return ord(letter) - 64
 
 
-if __name__ == "__main__":
-    triangle_numbers = set([i * (i + 1) // 2 for i in range(100 * 100)])
-    words = read_words(RESOURCE_DIR / 'problem_42_words.txt')
+def word_letter_position_sum(word: str) -> int:
+    return sum(map(letter_position, word))
 
-    count = sum(sum(map(letter_position, word)) in triangle_numbers
-                for word in words)
+
+def main() -> None:
+    words = read_words(RESOURCE_DIR / 'problem_42_words.txt')
+    triangle_numbers = set([i * (i + 1) // 2 for i in range(100 * 100)])
+
+    count = sum(value in triangle_numbers
+                for value in map(word_letter_position_sum, words))
 
     print(count)
+
+
+if __name__ == "__main__":
+    main()

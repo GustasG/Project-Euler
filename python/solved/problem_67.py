@@ -6,7 +6,8 @@ def parse_data(str_number: str) -> List[List[int]]:
     while '' in str_number:
         str_number.remove('')
     
-    return [[int(x) for x in line.split(' ')] for line in str_number]
+    return [[int(x) for x in line.split(' ')]
+            for line in str_number]
 
 
 def max_path(numbers: List[List[int]]) -> int:

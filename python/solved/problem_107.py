@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from shared.paths import RESOURCE_DIR
 
 
-@dataclass
+@dataclass(frozen=True)
 class Edge:
     src: int
     dest: int
@@ -14,7 +14,6 @@ class Edge:
 def find(parent: List[int], x: int) -> int:
     while x != parent[x]:
         x = parent[x]
-
     return x
 
 
@@ -35,12 +34,10 @@ def union(parent: List[int], rank: List[int], edge: Edge) -> None:
 
 
 def kruskal(graph: List[Edge], vertices: int) -> List[Edge]:
-    graph = graph.copy()
+    graph = sorted(graph, key=lambda item: item.weight)
 
     parent = [i for i in range(vertices + 1)]
     rank = [0 for _ in range(vertices + 1)]
-
-    graph = sorted(graph, key=lambda item: item.weight)
 
     a = []
 
@@ -48,7 +45,6 @@ def kruskal(graph: List[Edge], vertices: int) -> List[Edge]:
         if find(parent, edge.src) != find(parent, edge.dest):
             a.append(edge)
             union(parent, rank, edge)
-
     return a
 
 
@@ -56,7 +52,7 @@ def read_file(path: str) -> List[Edge]:
     with open(path, 'r') as f:
         return [Edge(i, j, int(weight))
                 for i, line in enumerate(f)
-                for j, weight in enumerate(line.split(','))
+                for j, weight in enumerate(line.rstrip().split(','))
                 if weight.isnumeric()]
 
 

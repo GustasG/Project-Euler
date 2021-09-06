@@ -1,6 +1,7 @@
 import collections
 from enum import Enum, auto
 from typing import List, Tuple
+from dataclasses import dataclass
 
 from shared.paths import RESOURCE_DIR
 
@@ -42,6 +43,7 @@ class Winner(Enum):
     NONE = auto()
 
 
+@dataclass(frozen=True)
 class Card:
     CARD_VALUES = {
         '2': 2,
@@ -59,15 +61,8 @@ class Card:
         'A': 14
     }
 
-    def __init__(self, value: str, suit: str):
-        self.value = value
-        self.suit = suit
-
-    def __str__(self):
-        return f'{self.value}{self.suit}'
-
-    def __repr__(self):
-        return f'{self.__class__.__name__}({self.value}, {self.suit})'
+    value: str
+    suit: str
 
     def evaluate(self) -> int:
         return Card.CARD_VALUES[self.value]
@@ -157,7 +152,7 @@ def find_winner(first_hand: Hand, second_hand: Hand) -> Winner:
                     return Winner.NONE
 
 
-if __name__ == "__main__":
+def main() -> None:
     first_player_hands, second_player_hands = read_file(RESOURCE_DIR / 'problem_54_poker.txt')
     first_player_wins, second_player_wins = 0, 0
 
@@ -171,3 +166,7 @@ if __name__ == "__main__":
 
     print(f'First player: {first_player_wins}')
     print(f'Second player: {second_player_wins}')
+
+
+if __name__ == "__main__":
+    main()

@@ -1,5 +1,6 @@
 def sum_divisors(number: int) -> int:
-    return sum(i for i in range(1, (number // 2) + 1) if number % i == 0)
+    return sum(i for i in range(1, (number // 2) + 1)
+               if number % i == 0)
 
 
 def sum_amicable_numbers(upper_bound: int) -> int:

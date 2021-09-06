@@ -24,7 +24,11 @@ def find_quadratic_primes() -> Tuple[int, int]:
     return max_a, max_b
 
 
-if __name__ == "__main__":
+def main() -> None:
     a, b = find_quadratic_primes()
 
     print(a * b)
+
+
+if __name__ == "__main__":
+    main()

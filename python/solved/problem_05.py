@@ -1,7 +1,11 @@
 from math import lcm
 
 
-if __name__ == "__main__":
+def main() -> None:
     m = lcm(*range(1, 20))
 
     print(m)
+
+
+if __name__ == "__main__":
+    main()

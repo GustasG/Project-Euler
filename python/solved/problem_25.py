@@ -10,5 +10,9 @@ def n_th_digit_fib_number(digit_number: int) -> int:
     return current_term
 
 
+def main() -> None:
+    print(n_th_digit_fib_number(1_000))
+
+
 if __name__ == '__main__':
-    print(n_th_digit_fib_number(1000))
+    main()

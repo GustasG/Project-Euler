@@ -1,12 +1,17 @@
-from typing import Set
+from typing import Any, Generator
 
 
-def generate_terms(a_upper: int, b_upper: int) -> Set[int]:
-    values = [a ** b for a in range(2, a_upper + 1) for b in range(2, b_upper + 1)]
-    return set(values)
+def generate_terms(a_upper: int, b_upper: int) -> Generator[int, Any, None]:
+    for a in range(2, a_upper + 1):
+        for b in range(2, b_upper + 1):
+            yield a ** b
+
+
+def main() -> None:
+    total = len(set(generate_terms(100, 100)))
+
+    print(total)
 
 
 if __name__ == "__main__":
-    total = len(generate_terms(100, 100))
-
-    print(total)
+    main()

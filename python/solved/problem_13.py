@@ -100,8 +100,12 @@ NUMBERS = '''37107287533902102798797998220837590246510135740250
 53503534226472524250874054075591789781264330331690'''
 
 
-if __name__ == '__main__':
-    numbers = list(map(int, NUMBERS.split('\n')))
+def main() -> None:
+    numbers = map(int, NUMBERS.split('\n'))
     s = sum(numbers)
 
     print(s)
+
+
+if __name__ == '__main__':
+    main()

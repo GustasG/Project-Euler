@@ -7,8 +7,7 @@ from shared.collections import CircularBuffer
 
 def read_file(path) -> List[int]:
     with open(path, 'r') as f:
-        numbers = f.read().split(',')
-        return list(map(int, numbers))
+        return list(map(int, f.read().split(',')))
 
 
 def decrypt(text: List[int], password: str) -> str:
@@ -22,7 +21,7 @@ def bruteforce(values: List[int]) -> Iterator[str]:
         yield decrypt(values, ''.join(str(l) for l in password))
 
 
-if __name__ == "__main__":
+def main() -> None:
     values = read_file(RESOURCE_DIR / 'problem_59_cipher.txt')
 
     # for test in bruteforce(values):
@@ -33,3 +32,7 @@ if __name__ == "__main__":
 
     print(f'Text: {text}')
     print(f'Sum: {sum(ord(num) for num in text)}')
+
+
+if __name__ == "__main__":
+    main()

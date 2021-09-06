@@ -15,8 +15,8 @@ def main() -> None:
 
     values.sort()
 
-    for i in range(len(values)):
-        print(f'a[{i + 1}] = {values[i]}')
+    for i, value in enumerate(values):
+        print(f'a[{i + 1}] = {value}')
 
 
 if __name__ == "__main__":

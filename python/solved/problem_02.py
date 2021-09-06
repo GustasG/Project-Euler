@@ -1,8 +1,12 @@
-from shared.generators import fibonacci
+from shared.generators import fibonacci, even
+
+
+def main() -> None:
+    limit = 4_000_000
+    s = sum(map(even, fibonacci(limit)))
+
+    print(s)
 
 
 if __name__ == "__main__":
-    limit = 4_000_000
-    s = sum(x for x in fibonacci(limit) if x % 2 == 0)
-
-    print(s)
+    main()

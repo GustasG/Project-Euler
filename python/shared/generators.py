@@ -1,12 +1,23 @@
-from typing import Generator, Any
+from typing import Any, Generator, Iterable, Iterator
 
 from shared.primes import is_prime
 
 
+def even(iterable: Iterable[int]) -> Generator[int, Any, None]:
+    for value in iterable:
+        if value % 2 == 0:
+            yield value
+
+
+def odd(iterable: Iterable[int]) -> Generator[int, Any, None]:
+    for value in iterable:
+        if value % 2 != 0:
+            yield value
+
+
 def fibonacci(limit: int) -> Generator[int, Any, None]:
-    prev = 1
-    curr = 1
-    
+    prev, curr = 1, 1
+
     while curr < limit:
         yield curr
         prev, curr = curr, curr + prev

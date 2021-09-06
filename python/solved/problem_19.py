@@ -7,7 +7,11 @@ def sunday_count(year_begin: int, year_end: int) -> int:
                for month in range(1, 13))
 
 
-if __name__ == '__main__':
+def main() -> None:
     c = sunday_count(1901, 2000)
 
     print(c)
+
+
+if __name__ == '__main__':
+    main()

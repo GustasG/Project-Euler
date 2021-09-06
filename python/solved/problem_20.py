@@ -3,7 +3,10 @@ import math
 from shared.generators import number_digits
 
 
-if __name__ == "__main__":
+def main() -> None:
     s = sum(number_digits(math.factorial(100)))
     print(s)
 
+
+if __name__ == "__main__":
+    main()
