@@ -11,7 +11,7 @@ def calculate_divisibility(number: str) -> bool:
 	return True
 
 
-if __name__ == "__main__":
+def main() -> None:
 	s = 0
 
 	for value in itertools.permutations('0123456789'):
@@ -21,3 +21,7 @@ if __name__ == "__main__":
 			s += int(current_number)
 
 	print(s)
+
+
+if __name__ == "__main__":
+	main()

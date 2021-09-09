@@ -12,6 +12,6 @@ def sqrt_sum(number: int) -> int:
 
 if __name__ == "__main__":
     decimal.getcontext().prec = 105
-    total = sum(sqrt_sum(i) for i in range(1, 100))
+    total = sum(map(sqrt_sum, range(1, 100)))
 
     print(total)

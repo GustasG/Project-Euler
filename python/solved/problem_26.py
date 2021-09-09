@@ -19,7 +19,7 @@ def find_cycle_length(number: int) -> int:
         divident = remainder * 10
 
 
-if __name__ == "__main__":
+def main() -> None:
     number = 1
     longest = -1
 
@@ -31,3 +31,7 @@ if __name__ == "__main__":
             longest = current_number_length
 
     print(number)
+
+
+if __name__ == "__main__":
+    main()

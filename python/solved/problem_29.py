@@ -8,9 +8,9 @@ def generate_terms(a_upper: int, b_upper: int) -> Generator[int, Any, None]:
 
 
 def main() -> None:
-    total = len(set(generate_terms(100, 100)))
+    total = set(generate_terms(100, 100))
 
-    print(total)
+    print(len(total))
 
 
 if __name__ == "__main__":

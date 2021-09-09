@@ -14,8 +14,12 @@ def coin_sum(coins: List[int], size: int, target: int) -> int:
     return coin_sum(coins, size - 1, target) + coin_sum(coins, size, target - coins[size - 1])
 
 
-if __name__ == '__main__':
+def main() -> None:
     coins = [1, 2, 5, 10, 20, 50, 1 * 100, 2 * 100]
     value = 200
 
     print(coin_sum(coins, len(coins), value))
+
+
+if __name__ == '__main__':
+    main()

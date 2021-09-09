@@ -3,14 +3,21 @@ from math import factorial
 from shared.generators import number_digits
 
 
+def is_digit_factorial_sum_equal_to_number(number: int) -> bool:
+    return sum(map(factorial, number_digits(number))) == number
+
+
 def calculate_digit_factorials() -> int:
-    limit = sum(factorial(i) for i in range(10))
+    limit = sum(map(factorial, range(10)))
 
-    return sum(i for i in range(3, limit)
-               if sum(factorial(x) for x in number_digits(i)) == i)
+    return sum(filter(is_digit_factorial_sum_equal_to_number, range(3, limit)))
 
 
-if __name__ == '__main__':
+def main() -> None:
     s = calculate_digit_factorials()
 
     print(s)
+
+
+if __name__ == '__main__':
+    main()
