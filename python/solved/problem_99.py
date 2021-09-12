@@ -1,4 +1,4 @@
-import math
+from math import log
 from typing import List
 from dataclasses import dataclass
 
@@ -12,13 +12,13 @@ class Number:
     exponent: int
 
     def __eq__(self, other):
-        return self.exponent * math.log(self.base) == other.exponent * math.log(other.base)
+        return self.exponent * log(self.base) == other.exponent * log(other.base)
 
     def __ne__(self, other):
         return not(self == other)
 
     def __lt__(self, other):
-        return self.exponent * math.log(self.base) < other.exponent * math.log(other.base)
+        return self.exponent * log(self.base) < other.exponent * log(other.base)
 
     def __gt__(self, other):
         return other < self
