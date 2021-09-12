@@ -101,8 +101,7 @@ NUMBERS = '''37107287533902102798797998220837590246510135740250
 
 
 def main() -> None:
-    numbers = map(int, NUMBERS.split('\n'))
-    s = sum(numbers)
+    s = sum(map(int, NUMBERS.split('\n')))
 
     print(s)
 
