@@ -1,11 +1,10 @@
 import math
-from typing import List
 from dataclasses import dataclass
 
 from shared.paths import RESOURCE_DIR
 
 
-@dataclass
+@dataclass(frozen=True)
 class Number:
     line: int
     base: int
@@ -30,10 +29,10 @@ class Number:
         return not(self < other)
 
 
-def read_file(path) -> List[Number]:
+def read_file(path) -> list[Number]:
     with open(path, 'r') as f:
-        return [Number(i + 1, *map(int, line.split(',')))
-                for i, line in enumerate(f)]
+        return [Number(i, *map(int, line.split(',')))
+                for i, line in enumerate(f, start=1)]
 
 
 def main():

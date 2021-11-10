@@ -1,6 +1,9 @@
+from numba import njit
+
 from shared.primes import is_prime
 
 
+@njit()
 def find_primary(limit: int) -> int:
     count = 1
     candidate = 1

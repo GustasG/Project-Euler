@@ -1,4 +1,4 @@
-from typing import Any, Generator, Iterable, Iterator
+from typing import Any, Generator, Iterable
 
 from shared.primes import is_prime
 

@@ -1,4 +1,3 @@
-from typing import List
 from dataclasses import dataclass
 
 from shared.paths import RESOURCE_DIR
@@ -11,13 +10,13 @@ class Edge:
     weight: int
 
 
-def find(parent: List[int], x: int) -> int:
+def find(parent: list[int], x: int) -> int:
     while x != parent[x]:
         x = parent[x]
     return x
 
 
-def union(parent: List[int], rank: List[int], edge: Edge) -> None:
+def union(parent: list[int], rank: list[int], edge: Edge) -> None:
     rx = find(parent, edge.src)
     ry = find(parent, edge.dest)
 
@@ -33,7 +32,7 @@ def union(parent: List[int], rank: List[int], edge: Edge) -> None:
             rank[ry] += 1
 
 
-def kruskal(graph: List[Edge], vertices: int) -> List[Edge]:
+def kruskal(graph: list[Edge], vertices: int) -> list[Edge]:
     graph = sorted(graph, key=lambda item: item.weight)
 
     parent = [i for i in range(vertices + 1)]
@@ -48,7 +47,7 @@ def kruskal(graph: List[Edge], vertices: int) -> List[Edge]:
     return a
 
 
-def read_file(path: str) -> List[Edge]:
+def read_file(path: str) -> list[Edge]:
     with open(path, 'r') as f:
         return [Edge(i, j, int(weight))
                 for i, line in enumerate(f)
@@ -56,7 +55,7 @@ def read_file(path: str) -> List[Edge]:
                 if weight.isnumeric()]
 
 
-def find_max_saving(graph: List[Edge], vertices: int) -> int:
+def find_max_saving(graph: list[Edge], vertices: int) -> int:
     tree = kruskal(graph, vertices)
 
     start_weight = sum(edge.weight for edge in graph) // 2

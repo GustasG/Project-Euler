@@ -4,13 +4,13 @@ from dataclasses import dataclass
 from shared.paths import RESOURCE_DIR
 
 
-@dataclass
+@dataclass(frozen=True)
 class Point:
     x: int
     y: int
 
 
-@dataclass
+@dataclass(frozen=True)
 class Triangle:
     a: Point
     b: Point

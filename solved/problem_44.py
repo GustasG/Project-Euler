@@ -1,10 +1,8 @@
-from typing import List
-
 from shared.numeric import calculate_pentagonal, is_pentagonal
 
 
 def find_pentagonal() -> int:
-    pentagonals: List[int] = []
+    pentagonals: list[int] = []
     i = 0
 
     while True:

@@ -1,12 +1,9 @@
-from typing import List
-
-
-def convert_to_numbers(grid: str) -> List[List[int]]:
+def convert_to_numbers(grid: str) -> list[list[int]]:
     return [list(map(int, line.strip().split(' ')))
             for line in grid.splitlines()]
 
 
-def product_horizontaly(number_grid: List[List[int]], grid_size: int) -> int:
+def product_horizontaly(number_grid: list[list[int]], grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size):
@@ -17,7 +14,7 @@ def product_horizontaly(number_grid: List[List[int]], grid_size: int) -> int:
     return biggest
 
 
-def product_verticaly(number_grid: List[List[int]], grid_size: int) -> int:
+def product_verticaly(number_grid: list[list[int]], grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size - 3):
@@ -28,7 +25,7 @@ def product_verticaly(number_grid: List[List[int]], grid_size: int) -> int:
     return biggest
 
 
-def product_diagonaly_down(number_grid: List[List[int]], grid_size: int) -> int:
+def product_diagonaly_down(number_grid: list[list[int]], grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size - 3):
@@ -39,7 +36,7 @@ def product_diagonaly_down(number_grid: List[List[int]], grid_size: int) -> int:
     return biggest
 
 
-def product_diagonaly_up(number_grid: List[List[int]], grid_size: int) -> int:
+def product_diagonaly_up(number_grid: list[list[int]], grid_size: int) -> int:
     biggest = -1
 
     for i in range(grid_size - 1, grid_size - (grid_size - 4), -1):

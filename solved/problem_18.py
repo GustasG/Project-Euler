@@ -1,9 +1,7 @@
-from typing import List
-
 from shared.paths import RESOURCE_DIR
 
 
-def read_file(path) -> List[List[int]]:
+def read_file(path) -> list[list[int]]:
     numbers = []
 
     with open(path, 'r') as f:
@@ -22,7 +20,7 @@ def read_file(path) -> List[List[int]]:
     return numbers
 
 
-def max_path(numbers: List[List[int]]) -> int:
+def max_path(numbers: list[list[int]]) -> int:
     numbers = numbers.copy()
 
     for index in range(len(numbers) - 2, -1, -1):

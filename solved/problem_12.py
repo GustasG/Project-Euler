@@ -1,10 +1,12 @@
-import math
+from math import sqrt
+from numba import njit, prange
 
 
+@njit()
 def divisor_counter(number: int) -> int:
     s = 0
 
-    for i in range(1, int(math.sqrt(number) + 1)):
+    for i in prange(1, int(sqrt(number) + 1)):
         if number % i == 0:
             if number // i == i:
                 s += 1
@@ -14,6 +16,7 @@ def divisor_counter(number: int) -> int:
     return s
 
 
+@njit()
 def triangular_number(divisor_number: int) -> int:
     triangle_number = 0
     s = 0

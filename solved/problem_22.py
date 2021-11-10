@@ -1,9 +1,7 @@
-from typing import List
-
 from shared.paths import RESOURCE_DIR
 
 
-def read_names(path) -> List[str]:
+def read_names(path) -> list[str]:
     with open(path, "r") as f:
         return f.read().replace('"', '').split(',')
 
@@ -18,8 +16,8 @@ def word_letter_sum(word: str) -> int:
 
 def main() -> None:
     names = sorted(read_names(RESOURCE_DIR / 'problem_22_names.txt'))
-    s = sum((i + 1) * word_letter_sum(name)
-            for i, name in enumerate(names))
+    s = sum(i * word_letter_sum(name)
+            for i, name in enumerate(names, start=1))
 
     print(s)
 

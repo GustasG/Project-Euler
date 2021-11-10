@@ -1,15 +1,13 @@
-from typing import List
-
 from shared.paths import RESOURCE_DIR
 
 
-def read_file(path) -> List[List[int]]:
+def read_file(path) -> list[list[int]]:
     with open(path, 'r') as f:
         return [list(map(int, line.split(',')))
                 for line in f]
 
 
-def find_minimal_path(matrix: List[List[int]]) -> int:
+def find_minimal_path(matrix: list[list[int]]) -> int:
     solution = [matrix[i][-1] for i in range(len(matrix))]
 
     for i in range(len(matrix) - 2, -1, -1):

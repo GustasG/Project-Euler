@@ -1,16 +1,14 @@
-from typing import List
-
 from shared.generators import factorization
 
 
-def is_consecutive_factors(numbers: List[int], length: int) -> bool:
+def is_consecutive_factors(numbers: list[int], length: int) -> bool:
     for number in numbers:
         if len(set(factorization(number))) != length:
             return False
     return True
 
 
-def find_first_prime_factors(length: int) -> List[int]:
+def find_first_prime_factors(length: int) -> list[int]:
     i = 0
 
     while True:

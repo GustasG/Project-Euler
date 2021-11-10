@@ -1,12 +1,9 @@
-from typing import List
-
-
-def parse_data(number: str) -> List[List[int]]:
+def parse_data(number: str) -> list[list[int]]:
     return [list(map(int, line.split(' ')))
             for line in number.splitlines()]
 
 
-def max_path(numbers: List[List[int]]) -> int:
+def max_path(numbers: list[list[int]]) -> int:
     for index in range(len(numbers) - 2, -1, -1):
         for length in range(0, len(numbers[index])):
             numbers[index][length] = numbers[index][length] + max(numbers[index + 1][length], numbers[index + 1][length + 1])

@@ -1,22 +1,22 @@
-from typing import List, Iterator
+from typing import Iterator
 from itertools import permutations
 
 from shared.paths import RESOURCE_DIR
 from shared.collections import CircularBuffer
 
 
-def read_file(path) -> List[int]:
+def read_file(path) -> list[int]:
     with open(path, 'r') as f:
         return list(map(int, f.read().split(',')))
 
 
-def decrypt(text: List[int], password: str) -> str:
+def decrypt(text: list[int], password: str) -> str:
     numeric_password = CircularBuffer[int](list(map(ord, password)))
 
     return ''.join(chr(text[i] ^ numeric_password[i]) for i in range(len(text)))
 
 
-def bruteforce(values: List[int]) -> Iterator[str]:
+def bruteforce(values: list[int]) -> Iterator[str]:
     for password in permutations('abcdefghijklmnopqrstuvwxyz', 3):
         yield decrypt(values, ''.join(str(l) for l in password))
 

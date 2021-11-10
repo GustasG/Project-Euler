@@ -1,7 +1,4 @@
-from typing import List
-
-
-def coin_sum(coins: List[int], size: int, target: int) -> int:
+def coin_sum(coins: list[int], size: int, target: int) -> int:
     if target == 0:
         return 1
 

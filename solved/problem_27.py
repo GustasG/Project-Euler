@@ -1,10 +1,8 @@
-from typing import Tuple
-
 from shared.primes import is_prime
 from shared.generators import prime_generator
 
 
-def find_quadratic_primes() -> Tuple[int, int]:
+def find_quadratic_primes() -> tuple[int, int]:
     max = 0
     max_a = 0
     max_b = 0

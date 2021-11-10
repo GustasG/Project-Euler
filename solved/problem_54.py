@@ -1,6 +1,5 @@
 import collections
 from enum import Enum, auto
-from typing import List, Tuple
 from dataclasses import dataclass
 
 from shared.paths import RESOURCE_DIR
@@ -71,8 +70,9 @@ class Card:
 class Hand:
     HAND_CARD_COUNT = 5
 
-    def __init__(self, cards: List[Card]):
+    def __init__(self, cards: list[Card]):
         assert(len(cards) == Hand.HAND_CARD_COUNT)
+
         self.cards = cards
         self.card_values = sorted((card.evaluate() for card in self.cards), reverse=True)
         self.rank = Rank.HIGH_CARD
@@ -114,7 +114,7 @@ class Hand:
         return f'{self.__class__.__name__}({repr(self.cards)})'
 
 
-def read_file(path) -> Tuple[List[Hand], List[Hand]]:
+def read_file(path) -> tuple[list[Hand], list[Hand]]:
     with open(path, 'r') as f:
         first_player_cards = []
         second_player_cards = []

@@ -1,4 +1,4 @@
-from typing import Any, Set, Generator
+from typing import Any, Generator
 
 
 def divisor_sum(number: int) -> int:
@@ -12,7 +12,7 @@ def calculate_abundant_numbers(limit: int) -> Generator[int, Any, None]:
             yield x
 
 
-def can_express_in_abundant_sum(numbers: Set[int], number: int) -> bool:
+def can_express_in_abundant_sum(numbers: set[int], number: int) -> bool:
     for num1 in numbers:
         if number - num1 in numbers:
             return True
