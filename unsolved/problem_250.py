@@ -1,7 +1,4 @@
-from typing import List
-
-
-def calculate_residues(m: int, n: int) -> List[int]:
+def calculate_residues(m: int, n: int) -> list[int]:
     residues = [0] * n
 
     for i in range(1, m + 1):
