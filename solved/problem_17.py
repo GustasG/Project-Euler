@@ -26,6 +26,7 @@ def getNumericVal(number):
     elif number == 9:
         return 4
 
+
 def lessThan20(number):
     if number < 10:
         return getNumericVal(number)
@@ -60,10 +61,10 @@ def lessThan20(number):
     elif number == 19:
         return 8
 
+
 def lessThan100(number):
     if number < 20:
         return lessThan20(number)
-
 
     value1 = number % 10
     value2 = number // 10
@@ -116,6 +117,7 @@ def lessThan100(number):
         else:
             return 6 + getNumericVal(value1)
 
+
 def lessThan1000(number):
     temp = number
 
@@ -131,6 +133,7 @@ def lessThan1000(number):
         return getNumericVal(value3) + 7
     else:
         return getNumericVal(value3) + 7 + 3 + lessThan100(10 * value2 + value1)
+
 
 def countLetters(max_val):
     count = 0

@@ -2,14 +2,14 @@ MAX_ITERATIONS = 25
 
 
 def reverse(number: int) -> int:
-    reversed = 0
+    rev = 0
 
     while number > 0:
         remainder = number % 10
-        reversed = (reversed * 10) + remainder
+        rev = (rev * 10) + remainder
         number //= 10
 
-    return reversed
+    return rev
 
 
 def is_palindrome(number: int) -> bool:
@@ -26,8 +26,12 @@ def is_lychrel(number: int) -> int:
     return True
 
 
-if __name__ == "__main__":
+def main() -> None:
     upper = 10**4
 
     count = sum(is_lychrel(i) for i in range(1, upper))
     print(count)
+
+
+if __name__ == "__main__":
+    main()

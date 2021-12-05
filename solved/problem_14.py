@@ -27,7 +27,11 @@ def collatz_sequence(limit: int) -> int:
     return idx
 
 
-if __name__ == '__main__':
+def main() -> None:
     s = collatz_sequence(10**6)
 
     print(s)
+
+
+if __name__ == '__main__':
+    main()

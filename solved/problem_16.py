@@ -1,11 +1,11 @@
 from shared.generators import number_digits
 
 
-def digits_sum(number: int, exp: int) -> int:
-    return sum(number_digits(number ** exp))
+def main() -> None:
+    s = sum(number_digits(2 ** 1000))
+
+    print(s)
 
 
 if __name__ == '__main__':
-    s = digits_sum(2, 1000)
-
-    print(s)
+    main()

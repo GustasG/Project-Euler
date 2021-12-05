@@ -1,4 +1,3 @@
-from typing import List
 from dataclasses import dataclass
 
 from shared.paths import RESOURCE_DIR
@@ -20,7 +19,7 @@ class Triangle:
 ORIGIN = Point(0, 0)
 
 
-def read_file(path: str) -> List[Triangle]:
+def read_file(path: str) -> list[Triangle]:
     with open(path, 'r') as f:
         triangles = []
         for line in f:

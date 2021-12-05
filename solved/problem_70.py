@@ -26,7 +26,11 @@ def min_phi_permutation(limit: int) -> int:
     return min_phi
 
 
-if __name__ == "__main__":
+def main() -> None:
     p = min_phi_permutation(10**7)
 
     print(p)
+
+
+if __name__ == "__main__":
+    main()

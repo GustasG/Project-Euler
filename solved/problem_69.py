@@ -12,7 +12,11 @@ def phi_max(n: int) -> int:
     return answer // prime
 
 
-if __name__ == "__main__":
+def main() -> None:
     m = phi_max(1000000)
 
     print(m)
+
+
+if __name__ == "__main__":
+    main()

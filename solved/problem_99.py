@@ -1,12 +1,13 @@
 import math
 from dataclasses import dataclass
 
+import numpy as np
+
 from shared.paths import RESOURCE_DIR
 
 
 @dataclass(frozen=True)
 class Number:
-    line: int
     base: int
     exponent: int
 
@@ -31,15 +32,14 @@ class Number:
 
 def read_file(path) -> list[Number]:
     with open(path, 'r') as f:
-        return [Number(i, *map(int, line.split(',')))
-                for i, line in enumerate(f, start=1)]
+        return [Number(*map(int, line.split(',')))
+                for line in f]
 
 
 def main():
     numbers = read_file(RESOURCE_DIR / 'problem_99_numbers.txt')
-    biggest = max(numbers)
 
-    print(biggest.line)
+    print(np.argmax(numbers) + 1)
 
 
 if __name__ == "__main__":

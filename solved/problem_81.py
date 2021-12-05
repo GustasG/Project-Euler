@@ -5,7 +5,6 @@ from shared.paths import RESOURCE_DIR
 
 def read_file(path) -> list[list[int]]:
     with open(path, 'r') as f:
-
         return [list(map(int, line.split(',')))
                 for line in f]
 

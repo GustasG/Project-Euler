@@ -45,3 +45,11 @@ def factorization(number: int) -> Generator[int, Any, None]:
 
     if number > 1:
         yield number
+
+
+def infinite_range(start: int = 0, step: int = 1) -> Generator[int, Any, None]:
+    current = start
+
+    while True:
+        yield current
+        current += step

@@ -1,10 +1,14 @@
 from datetime import date
 
 
+def is_saturday(year: int, month: int, day: int) -> bool:
+    return date(year, month, day).weekday() == 6
+
+
 def sunday_count(year_begin: int, year_end: int) -> int:
-    return sum(date(year, month, 1).weekday() == 6
-               for year in range(year_begin, year_end + 1)
-               for month in range(1, 13))
+    return sum(is_saturday(year, month, 1)
+               for month in range(1, 13)
+               for year in range(year_begin, year_end + 1))
 
 
 def main() -> None:
