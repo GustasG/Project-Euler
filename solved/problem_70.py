@@ -1,4 +1,4 @@
-from math import inf
+from math import inf, isqrt
 
 from shared.generators import prime_generator
 from shared.numeric import is_permutation
@@ -7,7 +7,7 @@ from shared.numeric import is_permutation
 def min_phi_permutation(limit: int) -> int:
     min_phi = 0
     max_ratio = inf
-    primes_bellow = list(prime_generator(2 * int(limit ** 0.5)))
+    primes_bellow = list(prime_generator(2 * isqrt(limit)))
 
     for x in primes_bellow:
         for y in primes_bellow:

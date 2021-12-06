@@ -1,9 +1,9 @@
-from shared.generators import prime_generator
 from shared.numeric import is_permutation
+from shared.accelerated import eratosthenes_sieve
 
 
-if __name__ == "__main__":
-    primes = list(prime_generator(10**4))
+def main() -> None:
+    primes = eratosthenes_sieve(10**4)
 
     for increment in range(1, 10**4):
         for first_number in primes:
@@ -15,4 +15,8 @@ if __name__ == "__main__":
 
             if is_permutation(first_number, second_number) and is_permutation(first_number, third_number)\
                     and first_number in primes and second_number in primes and third_number in primes:
-                print(f'first = {first_number}, second = {second_number}, third = {third_number}, increment = {increment}')
+                print(f'{first_number=}, {second_number=}, {third_number=}, {increment=}')
+
+
+if __name__ == "__main__":
+    main()

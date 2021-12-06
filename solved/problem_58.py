@@ -1,4 +1,4 @@
-from math import sqrt
+from math import isqrt
 
 from shared.primes import is_prime
 from shared.generators import infinite_range
@@ -19,7 +19,7 @@ def diagonally_bellow(ratio: float) -> int:
         if primes / total <= ratio:
             break
 
-    return int(sqrt(2 * length + 1))
+    return isqrt(2 * length + 1)
 
 
 def main() -> None:

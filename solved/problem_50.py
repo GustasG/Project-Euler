@@ -1,8 +1,8 @@
-from shared.generators import prime_generator
+from shared.accelerated import eratosthenes_sieve
 
 
 def prime_sum(limit: int) -> int:
-    primes_bellow_limit = list(prime_generator(limit))
+    primes_bellow_limit = eratosthenes_sieve(limit)
 
     biggest_number = 0
     biggest_length = 0

@@ -1,4 +1,5 @@
 from shared.numeric import is_permutation
+from shared.generators import infinite_range
 
 
 def is_max_permutation(number: int, multiple: int) -> bool:
@@ -9,16 +10,16 @@ def is_max_permutation(number: int, multiple: int) -> bool:
 
 
 def permutation_multiples(multiple: int) -> int:
-    i = 0
-
-    while True:
-        i += 1
-
+    for i in infinite_range(1):
         if is_max_permutation(i, multiple):
             return i
 
 
-if __name__ == "__main__":
+def main() -> None:
     m = permutation_multiples(6)
 
     print(m)
+
+
+if __name__ == "__main__":
+    main()

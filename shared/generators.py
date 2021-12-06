@@ -1,4 +1,5 @@
 from typing import Any, Generator, Iterable
+from math import isqrt
 
 from shared.primes import is_prime
 
@@ -38,7 +39,7 @@ def number_digits(number: int) -> Generator[int, Any, None]:
 
 
 def factorization(number: int) -> Generator[int, Any, None]:
-    for d in range(2, int(number**0.5) + 1):
+    for d in range(2, isqrt(number) + 1):
         while number % d == 0:
             number //= d
             yield d

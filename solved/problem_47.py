@@ -1,4 +1,4 @@
-from shared.generators import factorization
+from shared.generators import factorization, infinite_range
 
 
 def is_consecutive_factors(numbers: list[int], length: int) -> bool:
@@ -9,17 +9,18 @@ def is_consecutive_factors(numbers: list[int], length: int) -> bool:
 
 
 def find_first_prime_factors(length: int) -> list[int]:
-    i = 0
-
-    while True:
-        i += 1
+    for i in infinite_range(1):
         numbers = [(i + x) for x in range(length)]
 
         if is_consecutive_factors(numbers, length):
             return numbers
 
 
-if __name__ == "__main__":
+def main() -> None:
     f = min(find_first_prime_factors(4))
 
     print(f)
+
+
+if __name__ == "__main__":
+    main()

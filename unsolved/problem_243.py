@@ -1,7 +1,10 @@
+from math import isqrt
+
+
 def phi(number: int) -> int:
     result = number
 
-    for i in range(2, int(number**0.5) + 1):
+    for i in range(2, isqrt(number) + 1):
         if number % i == 0:
             while number % i == 0:
                 number //= i
@@ -29,7 +32,7 @@ def resilience_finder(resilience: float) -> int:
 
 def main():
     print(number_resilience(12))
-    #print(resilience_finder(15499/94744))
+    print(resilience_finder(15499/94744))
 
 
 if __name__ == "__main__":
