@@ -1,7 +1,8 @@
 from math import sqrt
 from functools import cache
 
-from numba import njit, prange
+import numpy as np
+from numba import njit
 
 
 @cache
@@ -20,17 +21,40 @@ def prime_factors(number: int) -> list[int]:
     return factors
 
 
-@njit
+@njit(boundscheck=False)
 def eratosthenes_sieve(n: int) -> list[int]:
-    is_prime = [True] * n
-    is_prime[0] = False
-    is_prime[1] = False
+    is_prime = np.ones(n)
+    is_prime[0] = 0
+    is_prime[1] = 0
 
     for i in range(2, int(sqrt(n)) + 1):
-        if is_prime[i]:
-            for j in prange(i ** 2, n, i):
-                is_prime[j] = False
+        if is_prime[i] == 1:
+            is_prime[i**2:n:i] = 0
 
     return [i
             for i, flag in enumerate(is_prime)
-            if flag]
+            if flag == 1]
+
+
+@njit(boundscheck=False)
+def phi_fractions(limit: int) -> np.ndarray:
+    fractions = np.arange(limit + 1)
+    fractions[1] = 0
+
+    for i in range(2, limit + 1):
+        if fractions[i] == i:
+            fractions[i::i] = (i - 1) * fractions[i::i] // i
+
+    return fractions
+
+
+@njit(boundscheck=False)
+def produce_radicals(limit: int) -> np.ndarray:
+    radicals = np.ones(limit + 1)
+
+    for i in range(2, limit):
+        if radicals[i] == 1:
+            radicals[i] = i
+            radicals[2 * i::i] *= i
+
+    return radicals

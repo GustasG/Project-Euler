@@ -10,8 +10,12 @@ def sqrt_sum(number: int) -> int:
         return sum(map(int, num_sqrt[1][0:99])) + int(num_sqrt[0])
 
 
-if __name__ == "__main__":
+def main() -> None:
     decimal.getcontext().prec = 105
     total = sum(map(sqrt_sum, range(1, 100)))
 
     print(total)
+
+
+if __name__ == "__main__":
+    main()

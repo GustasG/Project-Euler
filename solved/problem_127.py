@@ -1,28 +1,16 @@
 from math import gcd
 
-from numba import njit
+from numba import njit, prange
+
+from shared.accelerated import produce_radicals
 
 
-@njit
-def produce_radicals(limit: int) -> list[int]:
-    radicals = [1] * (limit + 1)
-
-    for i in range(2, limit):
-        if radicals[i] == 1:
-            radicals[i] = i
-
-            for j in range(2 * i, limit, i):
-                radicals[j] *= i
-
-    return radicals
-
-
-@njit
+@njit(boundscheck=False, parallel=True)
 def find_abc_hits(limit: int) -> list[tuple[int, int, int]]:
     radicals = produce_radicals(limit)
     hits = []
 
-    for a in range(1, limit):
+    for a in prange(1, limit):
         for b in range(a + 1, limit - a):
             c = a + b
 

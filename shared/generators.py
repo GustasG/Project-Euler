@@ -1,5 +1,5 @@
-from typing import Any, Generator, Iterable
 from math import isqrt
+from typing import Any, Generator, Iterable
 
 from shared.primes import is_prime
 

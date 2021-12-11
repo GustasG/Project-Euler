@@ -1,11 +1,11 @@
-from shared.generators import prime_generator
+from shared.accelerated import eratosthenes_sieve
 
 
 def main() -> None:
     prime_count = 10**6
     remainder = 10**10
 
-    primes = list(prime_generator(prime_count))
+    primes = eratosthenes_sieve(prime_count)
 
     for n in range(0, len(primes), 2):
         deg = n + 1

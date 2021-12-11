@@ -23,7 +23,7 @@ def can_express_in_abundant_sum(numbers: set[int], number: int) -> bool:
 
 
 def main() -> None:
-    upper_limit = 28123
+    upper_limit = 28_123
 
     abundant_numbers = set(calculate_abundant_numbers(upper_limit))
     s = sum(i for i in range(1, upper_limit)

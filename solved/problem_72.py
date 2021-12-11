@@ -1,19 +1,11 @@
-def count_fractions(d_end: int) -> int:
-    phi = [i for i in range(d_end + 1)]
+from shared.accelerated import phi_fractions
 
-    result = 0
 
-    for i in range(2, d_end + 1):
-        if phi[i] == i:
-            for j in range(i, d_end + 1, i):
-                phi[j] = (i - 1) * phi[j] // i
+def main() -> None:
+    c = sum(phi_fractions(10 ** 6))
 
-        result += phi[i]
-
-    return result
+    print(c)
 
 
 if __name__ == "__main__":
-    c = count_fractions(10**6)
-
-    print(c)
+    main()

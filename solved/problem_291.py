@@ -1,26 +1,16 @@
-from numba import njit, prange
+from math import sqrt
 
-from shared.primes import is_prime
+import gmpy2
 
 
-@njit()
-def find_panaitopol_prime_sum(upper_bound: int) -> int:
-    total = 0
-
-    for n in prange(1, upper_bound):
-        p = n ** 2 + (n + 1) ** 2
-
-        if p >= upper_bound:
-            break
-
-        if is_prime(p):
-            total += 1
-
-    return total
+def count_panaitopol_primes(limit: int) -> int:
+    return sum(gmpy2.is_prime(i**2 + (i + 1)**2, 5)
+               for i in range(1, int(sqrt(limit / 2))))
 
 
 def main() -> None:
-    s = find_panaitopol_prime_sum(5 * (10 ** 15))
+    limit = 5 * 10**15
+    s = count_panaitopol_primes(limit)
 
     print(s)
 

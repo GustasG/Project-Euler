@@ -1,4 +1,4 @@
-from shared.generators import prime_generator
+from shared.accelerated import eratosthenes_sieve
 
 
 def is_pandigital(number: int) -> bool:
@@ -11,7 +11,8 @@ def is_pandigital(number: int) -> bool:
 
 
 if __name__ == '__main__':
-    primes = set(prime_generator(10 ** 7))
+    primes = set(eratosthenes_sieve(10 ** 7))
+
     biggest = max(i for i in range(10 ** 6, 10 ** 7)
                   if i in primes and is_pandigital(i))
 

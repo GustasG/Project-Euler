@@ -1,7 +1,9 @@
+from math import sqrt
+
 from numba import njit
 
 
-@njit()
+@njit(fastmath=True)
 def is_prime(number: int) -> bool:
     if number <= 1:
         return False
@@ -14,11 +16,9 @@ def is_prime(number: int) -> bool:
     elif number % 3 == 0:
         return False
     else:
-        f = 5
-        while f <= round(number ** 0.5):
-            if number % f == 0:
+        for i in range(5, int(sqrt(number)) + 1, 6):
+            if number % i == 0:
                 return False
-            elif number % (f + 2) == 0:
+            elif number % (i + 2) == 0:
                 return False
-            f += 6
         return True
