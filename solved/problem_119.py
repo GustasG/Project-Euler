@@ -17,8 +17,8 @@ def generate_digit_powers() -> Generator[int, Any, None]:
 def main() -> None:
     values = sorted(generate_digit_powers())
 
-    for i, value in enumerate(values):
-        print(f'a[{i + 1}] = {value}')
+    for i, value in enumerate(values, start=1):
+        print(f'a[{i}] = {value}')
 
 
 if __name__ == "__main__":

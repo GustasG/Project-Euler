@@ -2,8 +2,8 @@ from shared.accelerated import produce_radicals
 
 
 def main() -> None:
-    limit = 100000
-    index = 10000
+    limit = 100_000
+    index = 10_000
 
     radicals = [(i, int(value))
                 for i, value in enumerate(produce_radicals(limit))][1:]

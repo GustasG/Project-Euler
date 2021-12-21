@@ -29,7 +29,7 @@ def eratosthenes_sieve(n: int) -> list[int]:
 
     for i in range(2, int(sqrt(n)) + 1):
         if is_prime[i] == 1:
-            is_prime[i**2:n:i] = 0
+            is_prime[i**2::i] = 0
 
     return [i
             for i, flag in enumerate(is_prime)

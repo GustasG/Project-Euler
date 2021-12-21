@@ -6,6 +6,7 @@ def phi_max(n: int) -> int:
 
     while answer < n:
         prime += 1
+
         if is_prime(prime):
             answer *= prime
 
@@ -13,7 +14,7 @@ def phi_max(n: int) -> int:
 
 
 def main() -> None:
-    m = phi_max(1000000)
+    m = phi_max(1_000_000)
 
     print(m)
 

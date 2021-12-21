@@ -18,7 +18,7 @@ def decrypt(text: list[int], password: str) -> str:
 
 def bruteforce(values: list[int]) -> Iterator[str]:
     for password in permutations('abcdefghijklmnopqrstuvwxyz', 3):
-        yield decrypt(values, ''.join(str(l) for l in password))
+        yield decrypt(values, ''.join(str(letter) for letter in password))
 
 
 def main() -> None:
