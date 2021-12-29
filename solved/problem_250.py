@@ -1,7 +1,7 @@
 from numba import njit
 
 
-@njit()
+@njit
 def find_divisible_subsets(residues: list[int], n: int) -> list[int]:
     subsets = [0] * n
     subsets[0] = 1

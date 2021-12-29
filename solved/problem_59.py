@@ -11,7 +11,7 @@ def read_file(path) -> list[int]:
 
 
 def decrypt(text: list[int], password: str) -> str:
-    numeric_password = CircularBuffer[int](list(map(ord, password)))
+    numeric_password = CircularBuffer(map(ord, password))
 
     return ''.join(chr(text[i] ^ numeric_password[i]) for i in range(len(text)))
 

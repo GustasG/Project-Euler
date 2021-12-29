@@ -1,11 +1,9 @@
 from math import sqrt
-from functools import cache
 
 import numpy as np
 from numba import njit
 
 
-@cache
 @njit
 def prime_factors(number: int) -> list[int]:
     factors = []
@@ -23,7 +21,7 @@ def prime_factors(number: int) -> list[int]:
 
 @njit(boundscheck=False)
 def eratosthenes_sieve(n: int) -> list[int]:
-    is_prime = np.ones(n)
+    is_prime = np.ones(n, dtype=np.uint8)
     is_prime[0] = 0
     is_prime[1] = 0
 

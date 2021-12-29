@@ -1,7 +1,7 @@
-from numba import njit, prange
+from numba import njit
 
 
-@njit()
+@njit
 def chain(number: int) -> int:
     if number == 1:
         return 1
@@ -12,17 +12,17 @@ def chain(number: int) -> int:
         return 1 + chain(3 * number + 1)
 
 
-@njit()
+@njit
 def collatz_sequence(limit: int) -> int:
     longest = -1
     idx = -1
 
-    for i in prange(limit // 2, limit):
-        current_long = chain(i)
+    for i in range(limit // 2, limit):
+        current_length = chain(i)
 
-        if current_long > longest:
+        if current_length > longest:
             idx = i
-            longest = current_long
+            longest = current_length
 
     return idx
 
