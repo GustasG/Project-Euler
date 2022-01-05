@@ -1,10 +1,10 @@
 from math import isqrt
-from typing import Any, Generator
+from typing import Iterator
 
 from shared.accelerated import eratosthenes_sieve
 
 
-def prime_power_triples(limit: int) -> Generator[int, Any, None]:
+def prime_power_triples(limit: int) -> Iterator[int]:
     primes = eratosthenes_sieve(isqrt(limit))
 
     for x in primes:

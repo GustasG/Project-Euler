@@ -20,3 +20,35 @@ def is_permutation(number1: int, number2: int) -> bool:
 
 def is_pandigital(number: int) -> bool:
     return ''.join(sorted(str(number))) == '123456789'
+
+
+def largest_permutation(number: int) -> int:
+    digits = [0] * 10
+
+    while number > 0:
+        digits[number % 10] += 1
+        number //= 10
+
+    permutation = 0
+
+    for i in range(9, -1, -1):
+        for j in range(digits[i]):
+            permutation = permutation * 10 + i
+
+    return permutation
+
+
+def smallest_permutation(number: int) -> int:
+    digits = [0] * 10
+
+    while number > 0:
+        digits[number % 10] += 1
+        number //= 10
+
+    permutation = 0
+
+    for i in range(9):
+        for j in range(digits[i]):
+            permutation = permutation * 10 + i
+
+    return permutation
