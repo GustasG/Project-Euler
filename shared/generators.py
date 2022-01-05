@@ -1,22 +1,22 @@
 from math import isqrt
-from typing import Any, Generator, Iterable
+from typing import Any, Iterable, Iterator
 
 from shared.primes import is_prime
 
 
-def even(iterable: Iterable[int]) -> Generator[int, Any, None]:
+def even(iterable: Iterable[int]) -> Iterator[int]:
     for value in iterable:
         if value % 2 == 0:
             yield value
 
 
-def odd(iterable: Iterable[int]) -> Generator[int, Any, None]:
+def odd(iterable: Iterable[int]) -> Iterator[int]:
     for value in iterable:
         if value % 2 != 0:
             yield value
 
 
-def fibonacci(limit: int) -> Generator[int, Any, None]:
+def fibonacci(limit: int) -> Iterator[int]:
     prev, curr = 1, 1
 
     while curr < limit:
@@ -24,13 +24,13 @@ def fibonacci(limit: int) -> Generator[int, Any, None]:
         prev, curr = curr, curr + prev
 
 
-def prime_generator(limit: int) -> Generator[int, Any, None]:
+def prime_generator(limit: int) -> Iterator[int]:
     for i in range(2, limit):
         if is_prime(i):
             yield i
 
 
-def number_digits(number: int) -> Generator[int, Any, None]:
+def number_digits(number: int) -> Iterator[int]:
     number = abs(number)
 
     while number > 0:
@@ -38,7 +38,7 @@ def number_digits(number: int) -> Generator[int, Any, None]:
         number //= 10
 
 
-def factorization(number: int) -> Generator[int, Any, None]:
+def factorization(number: int) -> Iterator[int]:
     for d in range(2, isqrt(number) + 1):
         while number % d == 0:
             number //= d
@@ -48,9 +48,18 @@ def factorization(number: int) -> Generator[int, Any, None]:
         yield number
 
 
-def infinite_range(start: int = 0, step: int = 1) -> Generator[int, Any, None]:
+def infinite_range(start: int = 0, step: int = 1) -> Iterator[int]:
     current = start
 
     while True:
         yield current
         current += step
+
+
+def iterator_length(iterator: Iterable[Any]) -> int:
+    length = 0
+
+    for value in iterator:
+        length += 1
+
+    return length

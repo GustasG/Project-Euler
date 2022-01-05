@@ -56,3 +56,14 @@ def produce_radicals(limit: int) -> np.ndarray:
             radicals[2 * i::i] *= i
 
     return radicals
+
+
+@njit
+def number_digits(number: int) -> list[int]:
+    digits = []
+
+    while number > 0:
+        digits.append(number % 10)
+        number //= 10
+
+    return digits
