@@ -1,5 +1,5 @@
+from shared.primes import is_prime
 from shared.generators import infinite_range
-from shared.accelerated import eratosthenes_sieve
 
 
 def sum_partition(numbers: list[int], size: int, target: int) -> int:
@@ -15,11 +15,14 @@ def sum_partition(numbers: list[int], size: int, target: int) -> int:
     return sum_partition(numbers, size - 1, target) + sum_partition(numbers, size, target - numbers[size - 1])
 
 
-def find_first_prime_summation(limit: int) -> int:
-    for i in infinite_range(1):
-        primes = eratosthenes_sieve(i)
+def find_first_prime_summation(quantity: int) -> int:
+    primes = []
 
-        if sum_partition(primes, len(primes), i) > limit:
+    for i in infinite_range(1):
+        if is_prime(i):
+            primes.append(i)
+
+        if sum_partition(primes, len(primes), i) > quantity:
             return i
 
 
