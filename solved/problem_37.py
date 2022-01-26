@@ -40,7 +40,3 @@ if __name__ == "__main__":
             total_numbers += 1
 
     print(total)
-
-
-
-

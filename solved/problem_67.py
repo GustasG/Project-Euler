@@ -10,7 +10,7 @@ def max_path(numbers: list[list[int]]) -> int:
 
     return numbers[0][0]
 
-    
+
 DATA = '''
 59
 73 41

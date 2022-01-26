@@ -2,7 +2,7 @@ from math import sqrt
 
 
 def calculate_pentagonal(n: int) -> int:
-    return (3*n*n - n) // 2
+    return (3 * n * n - n) // 2
 
 
 def is_pentagonal(number: int) -> bool:

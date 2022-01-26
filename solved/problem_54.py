@@ -83,29 +83,29 @@ class Hand:
         self.second_most_common_value, second_most_common_count = second_most_common
 
         if most_common_count == 4:
-            self.rank = Rank.FOUR_OF_KIND # Four cards of same value
+            self.rank = Rank.FOUR_OF_KIND  # Four cards of same value
         elif most_common_count == 3:
             if second_most_common_count == 2:
-                self.rank = Rank.FULL_HOUSE # Tree of a kind and a pair
+                self.rank = Rank.FULL_HOUSE  # Tree of a kind and a pair
             else:
                 self.rank = Rank.THREE_OF_KIND
         elif most_common_count == 2:
             if second_most_common_count == 2:
-                self.rank = Rank.TWO_PAIRS # Two different pairs
+                self.rank = Rank.TWO_PAIRS  # Two different pairs
             else:
-                self.rank = Rank.ONE_PAIR # One pair
+                self.rank = Rank.ONE_PAIR  # One pair
         else:
             is_flush = len(set(card.suit for card in self.cards)) == 1
             is_straight = (self.card_values[0] - self.card_values[-1]) == Hand.HAND_CARD_COUNT - 1
 
             if is_straight:
                 if is_flush:
-                    self.rank = Rank.STRAIGHT_FLUSH # All cards consecutive and same suit
+                    self.rank = Rank.STRAIGHT_FLUSH  # All cards consecutive and same suit
                 else:
-                    self.rank = Rank.STRAIGHT # All cards are consecutive
+                    self.rank = Rank.STRAIGHT  # All cards are consecutive
             else:
                 if is_flush:
-                    self.rank = Rank.FLUSH # All cards of the same suit
+                    self.rank = Rank.FLUSH  # All cards of the same suit
 
     def __str__(self):
         return ''.join(f'{card} ' for card in self.cards)

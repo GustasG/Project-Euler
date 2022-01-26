@@ -11,9 +11,9 @@ def find_quadratic_primes() -> tuple[int, int]:
         for b in prime_generator(1_000):
             n = 0
 
-            while is_prime(n*n + a*n + b):
+            while is_prime(n * n + a * n + b):
                 n += 1
-            
+
             if n > max:
                 max = n
                 max_a = a

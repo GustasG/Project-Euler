@@ -31,8 +31,6 @@ def prime_generator(limit: int) -> Iterator[int]:
 
 
 def number_digits(number: int) -> Iterator[int]:
-    number = abs(number)
-
     while number > 0:
         yield number % 10
         number //= 10
@@ -59,7 +57,7 @@ def infinite_range(start: int = 0, step: int = 1) -> Iterator[int]:
 def iterator_length(iterator: Iterable[Any]) -> int:
     length = 0
 
-    for value in iterator:
+    for _ in iterator:
         length += 1
 
     return length

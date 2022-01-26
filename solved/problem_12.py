@@ -2,7 +2,7 @@ from math import sqrt
 from numba import njit, prange
 
 
-@njit()
+@njit(parallel=True)
 def divisor_counter(number: int) -> int:
     s = 0
 
@@ -16,7 +16,7 @@ def divisor_counter(number: int) -> int:
     return s
 
 
-@njit()
+@njit
 def triangular_number(divisor_number: int) -> int:
     triangle_number = 0
     s = 0
@@ -30,7 +30,11 @@ def triangular_number(divisor_number: int) -> int:
             triangle_number += 1
 
 
-if __name__ == '__main__':
+def main() -> None:
     n = triangular_number(500)
 
     print(n)
+
+
+if __name__ == '__main__':
+    main()
