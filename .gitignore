@@ -1,5 +1,11 @@
+# Visual Studio IDE
 .vs/
-.idea/
+
+# Visual Studio Code
 .vscode/
 
-__pycache__
+# JetBrains IDE
+.idea/
+
+# Compiled Python bytecode
+*.py[cod]
