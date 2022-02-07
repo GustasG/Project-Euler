@@ -4,7 +4,7 @@ from numba import njit
 from shared.paths import RESOURCE_DIR
 
 
-@njit()
+@njit
 def find_next_cell_to_fill(board: np.ndarray, i: int, j: int) -> tuple[int, int]:
     for x in range(i, 9):
         for y in range(j, 9):
@@ -19,7 +19,7 @@ def find_next_cell_to_fill(board: np.ndarray, i: int, j: int) -> tuple[int, int]
     return -1, -1
 
 
-@njit()
+@njit
 def is_valid(board: np.ndarray, i: int, j: int, value: int) -> bool:
     valid_horizontally = value not in board[i]
     valid_vertically = value not in board[:, j]
@@ -28,7 +28,7 @@ def is_valid(board: np.ndarray, i: int, j: int, value: int) -> bool:
     return valid_horizontally and valid_vertically and valid_subgrid
 
 
-@njit()
+@njit
 def solve_sudoku(board: np.ndarray, i: int = 0, j: int = 0) -> bool:
     i, j = find_next_cell_to_fill(board, i, j)
 
