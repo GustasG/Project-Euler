@@ -1,5 +1,10 @@
+import numpy as np
+from numba import njit
+
+
+@njit(boundscheck=False)
 def summation_count(target: int) -> int:
-    targets = [0] * (target + 1)
+    targets = np.zeros(target + 1, dtype=np.uint32)
     targets[0] = 1
 
     for i in range(1, target):
