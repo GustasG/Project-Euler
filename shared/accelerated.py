@@ -21,17 +21,17 @@ def prime_factors(number: int) -> list[int]:
 
 @njit(boundscheck=False)
 def eratosthenes_sieve(n: int) -> list[int]:
-    is_prime = np.ones(n, dtype=np.uint8)
-    is_prime[0] = 0
-    is_prime[1] = 0
+    is_prime = np.full(n, True)
+    is_prime[0] = False
+    is_prime[1] = False
 
     for i in range(2, int(sqrt(n)) + 1):
-        if is_prime[i] == 1:
-            is_prime[i**2::i] = 0
+        if is_prime[i]:
+            is_prime[i**2::i] = False
 
     return [i
             for i, flag in enumerate(is_prime)
-            if flag == 1]
+            if flag]
 
 
 @njit(boundscheck=False)
