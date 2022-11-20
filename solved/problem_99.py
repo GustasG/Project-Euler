@@ -1,5 +1,6 @@
-import math
 from dataclasses import dataclass
+import math
+from typing import Iterator
 
 import numpy as np
 
@@ -30,15 +31,14 @@ class Number:
         return not(self < other)
 
 
-def read_file(path) -> list[Number]:
+def read_file(path) -> Iterator[Number]:
     with open(path, 'r') as f:
-        return [Number(*map(int, line.split(',')))
-                for line in f]
+        for line in f:
+            yield Number(*map(int, line.split(',')))
 
 
 def main():
-    numbers = read_file(RESOURCE_DIR / 'problem_99_numbers.txt')
-
+    numbers = list(read_file(RESOURCE_DIR / 'problem_99_numbers.txt'))
     print(np.argmax(numbers) + 1)
 
 
